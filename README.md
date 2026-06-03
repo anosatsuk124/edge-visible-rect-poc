@@ -14,6 +14,10 @@ The repo contains a raw Annex B HEVC sample with:
 
 https://anosatsuk124.github.io/edge-visible-rect-poc/
 
+## Issue Tracker
+
+Reported to the Issue Tracker.
+
 ## Security Impact
 
 This PoC is **not believed to demonstrate a security vulnerability**. It is intended to show a rendering / decoder correctness issue where Edge may report an unexpectedly small `VideoFrame.visibleRect` for a valid HEVC stream.
