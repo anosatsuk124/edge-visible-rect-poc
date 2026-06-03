@@ -10,6 +10,10 @@ The repo contains a raw Annex B HEVC sample with:
 
 `index.html` decodes the sample with WebCodecs, draws the original decoded `VideoFrame`, then creates a corrected `VideoFrame` with the expected `visibleRect` and draws that next to it.
 
+## Live Repro
+
+https://anosatsuk124.github.io/edge-visible-rect-poc/
+
 ## Requirements
 
 - A browser with WebCodecs `VideoDecoder` support.
