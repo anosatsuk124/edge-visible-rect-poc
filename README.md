@@ -43,6 +43,7 @@ Tested browser results:
 | Browser | Version | Platform | Result |
 | --- | --- | --- | --- |
 | Microsoft Edge | `Version 148.0.3967.96 (Official build) (64-bit)` | Windows | Reproduces |
+| Microsoft Edge Canary | `Edg/150.0.4071.0` | Windows | Reproduces |
 | Google Chrome Stable | `Version 147.0.7727.117 (Official Build) (64-bit)` | Windows | Does not reproduce |
 
 Tested Windows environment:
@@ -73,6 +74,26 @@ Tested Edge and GPU environment:
 | HEVC installed / activable / version | Not recorded |
 | AV1 installed / activable / version | Not recorded |
 | Hardware acceleration on/off result | Not recorded |
+
+Tested Edge Canary and GPU environment:
+
+The issue also reproduces on Microsoft Edge Canary. The following data was exported from `edge://gpu` on 2026-06-03.
+
+| Field | Value |
+| --- | --- |
+| Edge version | Edg/150.0.4071.0 |
+| OS | Windows NT 10.0.26100.6584 |
+| GPU | Intel Iris Xe Graphics |
+| GPU vendor/device | 0x8086 / 0x46a6 |
+| Driver version | 32.0.101.7026 |
+| Canvas | Hardware accelerated |
+| Compositing | Hardware accelerated |
+| Rasterization | Hardware accelerated |
+| Video Decode | Hardware accelerated |
+| Video Encode | Hardware accelerated |
+| WebGL | Hardware accelerated |
+| WebGPU | Hardware accelerated |
+| WebNN | Disabled |
 
 ## Run
 
