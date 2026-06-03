@@ -1,0 +1,48 @@
+ffmpeg version 6.1 Copyright (c) 2000-2023 the FFmpeg developers
+  built with gcc 13.2.1 (Alpine 13.2.1_git20240309) 20240309
+  configuration: --disable-debug --disable-doc --disable-ffplay --enable-fontconfig --enable-gpl --enable-libaom --enable-libaribb24 --enable-libass --enable-libbluray --enable-libdav1d --enable-libfdk-aac --enable-libfontconfig --enable-libfreetype --enable-libfribidi --enable-libharfbuzz --enable-libkvazaar --enable-libmp3lame --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenjpeg --enable-libopus --enable-libsrt --enable-libsvtav1 --enable-libtheora --enable-libvidstab --enable-libvmaf --enable-libvorbis --enable-libvpx --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libzimg --enable-libzmq --enable-nonfree --enable-openssl --enable-shared --enable-small --enable-version3 --extra-cflags='-I/opt/ffmpeg/include -I/usr/include/x86_64-linux-gnu' --extra-ldflags='-L/opt/ffmpeg/lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib' --extra-ldflags=-L/opt/ffmpeg/lib/x86_64-linux-gnu --extra-libs=-ldl --extra-libs=-lm --extra-libs=-lpthread --ld=g++ --prefix=/opt/ffmpeg
+  libavutil      58. 29.100 / 58. 29.100
+  libavcodec     60. 31.102 / 60. 31.102
+  libavformat    60. 16.100 / 60. 16.100
+  libavdevice    60.  3.100 / 60.  3.100
+  libavfilter     9. 12.100 /  9. 12.100
+  libswscale      7.  5.100 /  7.  5.100
+  libswresample   4. 12.100 /  4. 12.100
+  libpostproc    57.  3.100 / 57.  3.100
+Input #0, lavfi, from 'testsrc2=size=1952x1088:rate=10:duration=1':
+  Duration: N/A, start: 0.000000, bitrate: N/A
+  Stream #0:0: Video: wrapped_avframe, yuv420p, 1952x1088 [SAR 1:1 DAR 61:34], 10 fps, 10 tbr, 10 tbn
+Stream mapping:
+  Stream #0:0 -> #0:0 (wrapped_avframe (native) -> hevc (libx265))
+Press [q] to stop, [?] for help
+x265 [info]: HEVC encoder version 3.6+1-aa7f602f7
+x265 [info]: build info [Linux][GCC 13.2.1][64 bit] 8bit+10bit+12bit
+x265 [info]: using cpu capabilities: MMX2 SSE2Fast LZCNT SSSE3 SSE4.2 AVX FMA3 BMI2 AVX2
+x265 [info]: Main profile, Level-4 (Main tier)
+x265 [warning]: No thread pool allocated, --lookahead-slices disabled
+x265 [info]: Slices                              : 1
+x265 [info]: frame threads / pool features       : 1 / none
+x265 [info]: Coding QT: max CU size, min CU size : 32 / 16
+x265 [info]: Residual QT: max TU size, max depth : 32 / 1 inter / 1 intra
+x265 [info]: ME / range / subpel / merge         : dia / 57 / 0 / 2
+x265 [info]: Lookahead / bframes / badapt        : 5 / 0 / 0
+x265 [info]: b-pyramid / weightp / weightb       : 0 / 0 / 0
+x265 [info]: References / ref-limit  cu / depth  : 1 / off / off
+x265 [info]: AQ: mode / str / qg-size / cu-tree  : 1 / 0.0 / 32 / 1
+x265 [info]: Rate Control / qCompress            : CRF-28.0 / 0.60
+x265 [info]: tools: rd=2 psy-rd=2.00 early-skip rskip mode=1 tmvp fast-intra
+x265 [info]: tools: strong-intra-smoothing deblock
+Output #0, hevc, to '/work/edge-visible-rect-poc.h265':
+  Metadata:
+    encoder         : Lavf60.16.100
+  Stream #0:0: Video: hevc, yuv420p(progressive), 1952x1088 [SAR 1:1 DAR 61:34], q=2-31, 10 fps, 10 tbn
+    Metadata:
+      encoder         : Lavc60.31.102 libx265
+    Side data:
+      cpb: bitrate max/min/avg: 0/0/0 buffer size: 0 vbv_delay: N/A
+frame=    0 fps=0.0 q=0.0 size=       0kB time=N/A bitrate=N/A speed=N/A    frame=    2 fps=0.0 q=29.2 size=      55kB time=00:00:00.10 bitrate=4502.7kbits/s speed=0.181x    [out#0/hevc @ 0x7ffffcf0d7c0] video:465kB audio:0kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 0.000000%
+frame=   10 fps=8.5 q=30.0 Lsize=     465kB time=00:00:00.90 bitrate=4233.9kbits/s speed=0.767x    
+x265 [info]: frame I:      1, Avg QP:28.56  kb/s: 4501.12 
+x265 [info]: frame P:      9, Avg QP:29.32  kb/s: 3733.08 
+
+encoded 10 frames in 1.13s (8.82 fps), 3809.88 kb/s, Avg QP:29.25

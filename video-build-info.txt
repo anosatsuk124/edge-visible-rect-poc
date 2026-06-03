@@ -1,0 +1,26 @@
+Image: docker.io/jrottenberg/ffmpeg@sha256:4641478865a2387bb1d180dd9263e7226dab887c0789e02fa077fe919ef543df
+Platform: linux/amd64
+
+Expected tool versions:
+  ffmpeg version 6.1
+  x265 HEVC encoder version 3.6+1-aa7f602f7
+
+Actual ffmpeg -version:
+ffmpeg version 6.1 Copyright (c) 2000-2023 the FFmpeg developers
+built with gcc 13.2.1 (Alpine 13.2.1_git20240309) 20240309
+configuration: --disable-debug --disable-doc --disable-ffplay --enable-fontconfig --enable-gpl --enable-libaom --enable-libaribb24 --enable-libass --enable-libbluray --enable-libdav1d --enable-libfdk-aac --enable-libfontconfig --enable-libfreetype --enable-libfribidi --enable-libharfbuzz --enable-libkvazaar --enable-libmp3lame --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenjpeg --enable-libopus --enable-libsrt --enable-libsvtav1 --enable-libtheora --enable-libvidstab --enable-libvmaf --enable-libvorbis --enable-libvpx --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libzimg --enable-libzmq --enable-nonfree --enable-openssl --enable-shared --enable-small --enable-version3 --extra-cflags='-I/opt/ffmpeg/include -I/usr/include/x86_64-linux-gnu' --extra-ldflags='-L/opt/ffmpeg/lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib' --extra-ldflags=-L/opt/ffmpeg/lib/x86_64-linux-gnu --extra-libs=-ldl --extra-libs=-lm --extra-libs=-lpthread --ld=g++ --prefix=/opt/ffmpeg
+libavutil      58. 29.100 / 58. 29.100
+libavcodec     60. 31.102 / 60. 31.102
+libavformat    60. 16.100 / 60. 16.100
+libavdevice    60.  3.100 / 60.  3.100
+libavfilter     9. 12.100 /  9. 12.100
+libswscale      7.  5.100 /  7.  5.100
+libswresample   4. 12.100 /  4. 12.100
+libpostproc    57.  3.100 / 57.  3.100
+
+Output:
+bce09b3df36e3e6925edb3026656d60a4f083eaecf3754f9840d62d2bdf13f8b  /Users/anosatsuk124/Work/edge-visible-rect-poc/edge-visible-rect-poc.h265
+
+Validation:
+  /Users/anosatsuk124/Work/edge-visible-rect-poc/video-ffprobe.log
+  /Users/anosatsuk124/Work/edge-visible-rect-poc/video-trace-headers.log
