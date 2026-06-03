@@ -1,0 +1,106 @@
+# Edge HEVC visibleRect PoC
+
+Minimal proof of concept for checking a Microsoft Edge for Windows HEVC decoder issue where WebCodecs may expose an unexpectedly small `VideoFrame.visibleRect`.
+
+The repo contains a raw Annex B HEVC sample with:
+
+- Coded size: `1952x1088`
+- Expected visible size: `1928x1088`
+- SPS conformance crop: right crop of 24 luma pixels
+
+`index.html` decodes the sample with WebCodecs, draws the original decoded `VideoFrame`, then creates a corrected `VideoFrame` with the expected `visibleRect` and draws that next to it.
+
+## Requirements
+
+- A browser with WebCodecs `VideoDecoder` support.
+- HEVC decode support in that browser.
+- For the intended reproduction: Microsoft Edge on Windows with HEVC support installed.
+- A local HTTP server. Do not open `index.html` directly from `file://`.
+- Docker, only if you want to regenerate the sample stream.
+
+Tested browser results:
+
+| Browser | Version | Platform | Result |
+| --- | --- | --- | --- |
+| Microsoft Edge | `Version 148.0.3967.96 (Official build) (64-bit)` | Windows | Reproduces |
+| Google Chrome Stable | `Version 147.0.7727.117 (Official Build) (64-bit)` | Windows | Does not reproduce |
+
+## Run
+
+Serve this directory over localhost:
+
+```sh
+python3 -m http.server 8000
+```
+
+Then open:
+
+```text
+http://localhost:8000/
+```
+
+The page starts automatically when loaded over HTTP. You can also press **Run PoC** manually.
+
+## Interpreting Results
+
+Expected healthy behavior:
+
+- `decoded visibleRect` is `{ x: 0, y: 0, width: 1928, height: 1088 }`
+- The original and corrected canvases look the same.
+- The original badge shows `normal`.
+
+Likely bug reproduction:
+
+- `decoded visibleRect` is much smaller than the expected `1928x1088`.
+- The original canvas looks zoomed or cropped.
+- The corrected canvas shows the expected `1928x1088` image.
+- The original badge shows `Edge bug likely`.
+
+The status panel includes the user agent, selected HEVC codec string, decoded dimensions, and `visibleRect` values.
+
+## Regenerate the HEVC Sample
+
+Run:
+
+```sh
+./generate-video.sh
+```
+
+The script uses a pinned Docker image:
+
+```text
+docker.io/jrottenberg/ffmpeg@sha256:4641478865a2387bb1d180dd9263e7226dab887c0789e02fa077fe919ef543df
+```
+
+It generates `edge-visible-rect-poc.h265`, validates the stream, and writes:
+
+- `edge-visible-rect-poc.h265.sha256`
+- `video-build.log`
+- `video-build-info.txt`
+- `video-ffprobe.log`
+- `video-trace-headers.log`
+
+Expected validation checks:
+
+- `width=1928`
+- `height=1088`
+- `coded_width=1952`
+- `coded_height=1088`
+- `has_b_frames=0`
+- `pic_width_in_luma_samples = 1952`
+- `pic_height_in_luma_samples = 1088`
+- `conf_win_right_offset = 12`
+
+For this 4:2:0 HEVC stream, `conf_win_right_offset = 12` means a 24-pixel right crop, producing the expected visible width of `1928`.
+
+## Files
+
+- `index.html`: Static WebCodecs test page.
+- `edge-visible-rect-poc.h265`: Raw HEVC sample used by the page.
+- `generate-video.sh`: Reproducible sample generation and validation script.
+- `video-*.log`, `video-build-info.txt`: Build and validation outputs for the committed sample.
+- `edge-visible-rect-poc.h265.sha256`: SHA-256 checksum for the sample.
+
+## Notes
+
+HEVC browser support depends on the OS, browser, installed codecs, and hardware/software decoder availability. This PoC decodes the first frame of a raw HEVC stream; it is not intended to test MP4 playback behavior.
