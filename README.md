@@ -25,6 +25,35 @@ Tested browser results:
 | Microsoft Edge | `Version 148.0.3967.96 (Official build) (64-bit)` | Windows | Reproduces |
 | Google Chrome Stable | `Version 147.0.7727.117 (Official Build) (64-bit)` | Windows | Does not reproduce |
 
+Tested Windows environment:
+
+| Field | Value |
+| --- | --- |
+| OS Name | Microsoft Windows 11 Pro |
+| Version | 10.0.26100 Build 26100 |
+| Other OS Description | Not Available |
+| OS Manufacturer | Microsoft Corporation |
+| System Manufacturer | LENOVO |
+| System Model | 21CES2FE0B |
+| System Type | x64-based PC |
+| System SKU | LENOVO_MT_21CE_BU_Think_FM_ThinkPad X1 Yoga Gen 7 |
+| Processor | 12th Gen Intel(R) Core(TM) i7-1270P, 2200 Mhz, 12 Core(s), 16 Logical Processor(s) |
+
+Tested Edge and GPU environment:
+
+| Field | Value |
+| --- | --- |
+| Edge version | Edg/148.0.3967.96 |
+| OS | Windows NT 10.0.26100.6584 |
+| GPU | Intel Iris Xe Graphics |
+| GPU vendor/device | 0x8086 / 0x46a6 |
+| Driver version | 32.0.101.7026 |
+| Video Decode | Hardware accelerated |
+| Video Encode | Hardware accelerated |
+| HEVC installed / activable / version | Not recorded |
+| AV1 installed / activable / version | Not recorded |
+| Hardware acceleration on/off result | Not recorded |
+
 ## Run
 
 Serve this directory over localhost:
