@@ -14,6 +14,16 @@ The repo contains a raw Annex B HEVC sample with:
 
 https://anosatsuk124.github.io/edge-visible-rect-poc/
 
+## Screenshots
+
+### Microsoft Edge
+
+<img width="1997" height="948" alt="localhost_8000_" src="https://github.com/user-attachments/assets/40badede-7ad2-46ce-bc34-a3e2ee1677d8" />
+
+### Google Chrome
+
+<img width="2005" height="945" alt="localhost_8000_ (1)" src="https://github.com/user-attachments/assets/3fbe153d-d656-41cd-bc65-2dcca8286b8a" />
+
 ## Requirements
 
 - A browser with WebCodecs `VideoDecoder` support.
